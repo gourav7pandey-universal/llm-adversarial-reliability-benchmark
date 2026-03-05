@@ -1,0 +1,7 @@
+[
+  {
+    "model": "example_model",
+    "category": "hallucination",
+    "failure_rate": 0.2
+  }
+]
