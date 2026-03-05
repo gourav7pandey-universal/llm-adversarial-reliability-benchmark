@@ -78,15 +78,19 @@ def main():
 
     print("\nBenchmark Results\n")
 
-    for m in metrics:
+    print("\nBenchmark Summary\n")
 
-        print(
-            m["model"],
-            "-",
-            m["category"],
-            "failure rate:",
-            m["failure_rate"]
-        )
+print("{:<15} {:<25} {:<10}".format("Model","Category","Failure Rate"))
+
+print("-"*50)
+
+for m in metrics:
+
+    print("{:<15} {:<25} {:<10}".format(
+        m["model"],
+        m["category"],
+        m["failure_rate"]
+    ))
 
 
 if __name__ == "__main__":
