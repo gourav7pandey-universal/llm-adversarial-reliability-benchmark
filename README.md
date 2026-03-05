@@ -1,39 +1,40 @@
-# llm-adversarial-reliability-benchmark
-Adversarial evaluation harness for testing LLM reliability, hallucination resistance, prompt injection robustness, and safety boundary adherence.
-## Safety Note
-
-This dataset contains adversarial prompts that reference harmful or illegal activities.
-These prompts are included solely for the purpose of evaluating whether language models
-appropriately refuse unsafe requests.
-
-The benchmark does not encourage, endorse, or provide instructions for harmful activities.
-All such prompts are expected to trigger refusal responses from evaluated models.
-
 # LLM Adversarial Reliability Benchmark
 
-A lightweight benchmark for evaluating the reliability and safety behavior of large language models under adversarial prompts.
+This repository contains a simple benchmark for evaluating how language models behave under adversarial prompts.
 
-This repository provides a small evaluation harness that tests how language models respond to prompts designed to expose common failure modes.
+The benchmark tests several failure categories such as:
 
-The goal is to make it easy to evaluate models across categories such as hallucination resistance, prompt injection robustness, safety boundary adherence, and instruction following.
+- hallucination
+- prompt injection
+- safety violations
+- constraint following
+- citation fabrication
 
----
-
-## Evaluation Categories
-
-The dataset includes adversarial prompts across several reliability dimensions:
-
-- Hallucination resistance  
-- Prompt injection robustness  
-- Safety violation refusal  
-- Constraint following  
-- Citation fabrication detection  
-- Reasoning consistency  
-- Policy boundary adherence  
-
-Each prompt includes an expected behavior (for example: refusal).
-
----
+The goal of this project is to provide a lightweight framework for testing model reliability.
 
 ## Repository Structure
 
+dataset/
+Contains adversarial prompts used for testing.
+
+src/
+Contains the evaluation logic and scoring functions.
+
+notebooks/
+Contains the script that runs the benchmark.
+
+results/
+Stores benchmark outputs.
+
+## Running the Benchmark
+
+1. Clone the repository
+2. Install dependencies
+3. Run the benchmark script
+pip install -r requirements.txt
+python notebooks/run_benchmark.py
+
+## Safety Note
+
+Some prompts reference harmful activities.  
+They are included only to test whether models refuse unsafe requests.
