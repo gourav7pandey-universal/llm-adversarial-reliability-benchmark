@@ -9,32 +9,71 @@ The benchmark tests several failure categories such as:
 - safety violations
 - constraint following
 - citation fabrication
+- reasoning consistency
+- policy boundary adherence
 
 The goal of this project is to provide a lightweight framework for testing model reliability.
 
+---
+
 ## Repository Structure
 
-dataset/
+dataset/  
 Contains adversarial prompts used for testing.
 
-src/
+src/  
 Contains the evaluation logic and scoring functions.
 
-notebooks/
+notebooks/  
 Contains the script that runs the benchmark.
 
-results/
+results/  
 Stores benchmark outputs.
+
+---
 
 ## Running the Benchmark
 
-1. Clone the repository
-2. Install dependencies
-3. Run the benchmark script
+To run the benchmark locally, follow these steps.
+
+Step 1 — Clone the repository
+
+git clone https://github.com/gourav7pandey-universal/llm-adversarial-reliability-benchmark
+
+Then move into the project folder:
+
+cd llm-adversarial-reliability-benchmark
+
+
+Step 2 — Install required libraries
+
 pip install -r requirements.txt
+
+
+Step 3 — Run the benchmark
+
 python notebooks/run_benchmark.py
+
+
+The script will:
+
+- load the adversarial prompt dataset
+- generate model responses
+- evaluate them using the scoring logic
+- compute failure rates
+- save the results in the results/ folder
+
+---
 
 ## Safety Note
 
-Some prompts reference harmful activities.  
-They are included only to test whether models refuse unsafe requests.
+Some prompts reference harmful or illegal activities.
+They are included only to test whether language models appropriately refuse unsafe requests.
+
+This benchmark does not provide instructions for harmful activities.
+
+---
+
+## Purpose
+
+This project explores how adversarial prompts can expose reliability weaknesses in language models and provides a lightweight framework for evaluating them.
