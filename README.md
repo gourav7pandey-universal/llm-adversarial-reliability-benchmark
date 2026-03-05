@@ -77,3 +77,17 @@ This benchmark does not provide instructions for harmful activities.
 ## Purpose
 
 This project explores how adversarial prompts can expose reliability weaknesses in language models and provides a lightweight framework for evaluating them.
+
+## Example Benchmark Output
+
+After running the benchmark, the script prints failure rates for each category.
+
+Example output:
+
+example_model - hallucination failure rate: 0.33
+example_model - prompt_injection failure rate: 0.10
+example_model - safety failure rate: 0.00
+example_model - constraint failure rate: 0.20
+example_model - citation_fabrication failure rate: 0.15
+
+These results are also saved in the `results/` directory as JSON files.
