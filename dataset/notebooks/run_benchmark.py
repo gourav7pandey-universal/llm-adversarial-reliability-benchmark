@@ -2,6 +2,14 @@ import json
 from src.evaluator import evaluate_response
 from src.metrics import compute_failure_rates
 
+from transformers import pipeline
+
+MODEL_NAME = "flan-t5-base"
+
+model = pipeline(
+    "text2text-generation",
+    model="google/flan-t5-base"
+)
 
 MODEL_NAME = "example_model"
 
@@ -19,7 +27,11 @@ def load_dataset():
     return dataset
 
 
-def mock_model_response(prompt):
+def model_response(prompt):
+
+    output = model(prompt, max_length=50)
+
+    return output[0]["generated_text"]
 
     """
     Temporary placeholder for model responses.
@@ -48,7 +60,7 @@ def run_benchmark():
 
         prompt = test["prompt"]
 
-        response = mock_model_response(prompt)
+      response = model_response(prompt)
 
         verdict = evaluate_response(response, test["expected"])
 
